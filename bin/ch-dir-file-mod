@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# change directory and file mod to the default 755 and 644,
+# recursively
+
+target=`dirname $1`
+test -z "$target" && target=.
+
+echo $target
+
+#for d in `find $target -type d`; do chmod 755 $d; done
+#for f in `find $target -type f`; do chmod 644 $f; done

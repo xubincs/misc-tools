@@ -1,0 +1,24 @@
+#!/usr/bin/python3
+
+
+import os
+import subprocess
+import sys
+import time
+
+from gi.repository import Gio
+from gi.repository import Gtk
+from gi.repository import GLib
+
+if __name__ == '__main__':
+
+    Gtk.init(sys.argv)
+
+    w = Gtk.Window(Gtk.WindowType.TOPLEVEL)
+    w.connect('destroy', Gtk.main_quit)
+    w.set_position(Gtk.WindowPosition.CENTER)
+    w.set_size_request(600, 400)
+    w.show_all()
+
+    Gtk.main()
+

@@ -1,3 +1,10 @@
-#!/bin/sh
+#!/usr/bin/python3
 
-xinput set-prop 13 "Device Enabled" 0
+import subprocess
+import time
+
+from gi.repository import Gtk
+
+if __name__ == '__main__':
+    time.sleep(5)
+    subprocess.call(['xinput', 'set-prop', '13', 'Device Enabled', '0'])

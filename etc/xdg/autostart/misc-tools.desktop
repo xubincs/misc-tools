@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Misc Tools
 Icon=nm-device-wireless
-Exec=disable-touchpad
+Exec=touchpad-off
 Terminal=false
 Type=Application
 NoDisplay=true

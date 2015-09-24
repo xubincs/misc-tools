@@ -6,28 +6,29 @@ import sys
 
 if __name__ == '__main__':
     
-    time.sleep(5)
+    while True:
+        time.sleep(5)
 
-    inputs = subprocess.check_output(['xinput'])
-    inputs = inputs.decode('UTF-8')
-    touchpad_line = ''
-    for line in inputs.split('\n'):
-        if line.find('TouchPad') >= 0:
-            touchpad_line = line
-            break
+        inputs = subprocess.check_output(['xinput'])
+        inputs = inputs.decode('UTF-8')
+        touchpad_line = ''
+        for line in inputs.split('\n'):
+            if line.find('TouchPad') >= 0:
+                touchpad_line = line
+                break
 
-    if not touchpad_line:
-        sys.exit(0)
+        if not touchpad_line:
+            sys.exit(0)
 
-    touchpad_line = touchpad_line.replace('\t', '\x20')
-    id_s = ''
-    for s in touchpad_line.split('\x20'):
-        if s.find('id=') >= 0:
-            id_s = s
-            break
+        touchpad_line = touchpad_line.replace('\t', '\x20')
+        id_s = ''
+        for s in touchpad_line.split('\x20'):
+            if s.find('id=') >= 0:
+                id_s = s
+                break
 
-    if not id_s:
-        sys.exit(0)
+        if not id_s:
+            sys.exit(0)
 
-    target_id = id_s.split('=')[1]
-    subprocess.call(['xinput', 'set-prop', target_id, 'Device Enabled', '0'])
+        target_id = id_s.split('=')[1]
+        subprocess.call(['xinput', 'set-prop', target_id, 'Device Enabled', '0'])
